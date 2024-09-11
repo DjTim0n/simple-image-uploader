@@ -32,7 +32,7 @@ func uploadImage(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{"status": 500, "message": "Server error", "data": nil})
 	}
 
-	imageUrl := fmt.Sprintf("https://mageservice.tim-space.kz/images/%s", image)
+	imageUrl := fmt.Sprintf("https://imageservice.tim-space.kz/images/%s", image)
 
 	data := map[string]interface{}{
 		"imageName": image,
