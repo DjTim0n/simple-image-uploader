@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/google/uuid"
 )
 
@@ -49,6 +50,12 @@ func main() {
 	app := fiber.New()
 
 	app.Static("/images", "./images")
+
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     "*",
+		AllowHeaders:     "*",
+		AllowCredentials: true,
+	}))
 
 	app.Post("/upload", uploadImage)
 
