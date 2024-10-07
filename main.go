@@ -47,13 +47,14 @@ func uploadImage(c *fiber.Ctx) error {
 
 func main() {
 
-	app := fiber.New()
-
+	app := fiber.New(fiber.Config{
+		BodyLimit: 100 * 1024 * 1024,
+	})
 	app.Static("/images", "./images")
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "*",
-		AllowHeaders:     "*",
+		AllowOrigins: "*",
+		AllowHeaders: "*",
 	}))
 
 	app.Post("/upload", uploadImage)
