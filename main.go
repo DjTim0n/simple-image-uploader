@@ -54,7 +54,6 @@ func main() {
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     "*",
 		AllowHeaders:     "*",
-		AllowCredentials: true,
 	}))
 
 	app.Post("/upload", uploadImage)
