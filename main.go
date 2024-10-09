@@ -87,7 +87,7 @@ func uploadImage(c *fiber.Ctx, db *sql.DB) error {
 		return c.JSON(fiber.Map{"status": 500, "message": "Server error", "data": nil})
 	}
 
-	imageUrl := fmt.Sprintf("http://localhost:4000/images/%s/%s", savePath, readableFileName)
+	imageUrl := fmt.Sprintf("https://imageservice.tim-space.kz/images/%s/%s", savePath, readableFileName)
 
 	// Сохраняем запись о новом изображении в базу данных
 	_, err = db.Exec("INSERT INTO images (hash, file_name, url) VALUES (?, ?, ?)", fileHash, readableFileName, imageUrl)
