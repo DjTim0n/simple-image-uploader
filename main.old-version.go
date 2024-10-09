@@ -57,7 +57,7 @@ func mainOld() {
 		AllowHeaders: "*",
 	}))
 
-	app.Post("/upload", uploadImage)
+	app.Post("/upload", uploadImageOld)
 
 	if err := app.Listen(":4000"); err != nil {
 		log.Fatalf("Error starting server: %v", err)
