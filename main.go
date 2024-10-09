@@ -108,7 +108,7 @@ func uploadImage(c *fiber.Ctx, db *sql.DB) error {
 
 func main() {
 	// Подключение к базе данных SQLite
-	db, err := sql.Open("sqlite3", "./images.db")
+	db, err := sql.Open("sqlite3", "./db/images.db")
 	if err != nil {
 		log.Fatal(err)
 	}

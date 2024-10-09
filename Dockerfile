@@ -1,4 +1,4 @@
-FROM golang:1.23-alpine
+FROM golang:1.23
 
 WORKDIR /app
 
@@ -11,6 +11,8 @@ COPY . .
 RUN go build -o app
 
 RUN mkdir -p ./images
+
+RUN mkdir -p ./db
 
 EXPOSE 4000
 
